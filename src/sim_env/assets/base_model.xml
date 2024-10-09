@@ -1,0 +1,48 @@
+<mujoco model="package_rearrangement">
+    <include file="./src/sim_env/assets/scene.xml" />
+
+    <option solver="CG" jacobian="sparse" integrator="implicitfast" timestep=".002" />
+
+    <default>
+    </default>
+
+    <extension>
+        <plugin plugin="mujoco.elasticity.solid" />
+    </extension>
+
+    <compiler meshdir="./src/sim_env/assets/meshes" />
+
+    <asset>
+        <mesh file="paddle.stl" name="paddle_mesh" scale="0.001 0.001 0.001" />
+    </asset>
+
+    <worldbody>
+        <body name="mocap" pos="0.398 0.15 0.305" quat="1 0 0 0" mocap="true">
+            <geom type="sphere" group="1" size="0.01" contype="0" conaffinity="0"
+                rgba=".9 .5 .5 1" />
+        </body>
+
+        <body name="gripper_base" pos="0.395 0.15 0.5" quat="0.5 -0.5 0.5 -0.5">
+            <freejoint />
+
+            <geom type="mesh" name="gripper_collision" mesh="paddle_mesh" friction="1 0.005 0.0001"
+                group="0" mass="1.5" />
+            <geom type="mesh" name="gripper_visual" mesh="paddle_mesh" rgba="0.5 0.5 0.5 1"
+                group="1" />
+
+            <body name="gripper_ee" pos="0 0.31 0.005" quat="0.5 0.5 -0.5 0.5" >
+                <site name="gripper_site" type="box" group="1"/>
+            </body>
+        </body>
+
+    </worldbody>
+
+    <equality>
+        <weld body1="mocap" body2="gripper_ee" solref="0.01 1" solimp=".9 .9 0.01" />
+    </equality>
+
+    <sensor>
+        <force site="gripper_site" />
+    </sensor>
+
+</mujoco>

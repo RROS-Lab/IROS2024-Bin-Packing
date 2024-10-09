@@ -2,7 +2,13 @@
 
 ## Environment Setup
 
-This project uses **Python 3.10**. To simplify the process of setting up the development environment, we use **[PDM](https://pdm-project.org/en/latest/)** for Python package management and virtual environment management.
+To simplify the process of setting up the development environment, we use **[PDM](https://pdm-project.org/en/latest/)** for Python package management and virtual environment management.
+
+### Pre-requirements
+
+- Ubuntu >= 20.04 (Didn't test on other platforms)
+- Python >= 3.8 (For PDM installation)
+- Anaconda/Miniconda (For virtualenv creation)
 
 ### Step 1: Install PDM
 
@@ -23,10 +29,10 @@ cd IROS2024-Bin-Packing
 
 ### Step 3: Create a Virtual Environment
 
-Next, create a Python 3.10 virtual environment using PDM:
+Next, create a Python 3.10 virtual environment using PDM and select conda as backend:
 
 ```shell
-pdm venv create 3.10
+pdm venv create --with conda 3.10
 ```
 
 To verify the virtual environment was created successfully, use:
@@ -46,7 +52,7 @@ Virtualenvs created with this project:
 Here, `in-project` is the default name of the virtual environment. If you'd like to specify a custom name for the environment, use:
 
 ```shell
-pdm venv create --name my-env-name 3.10
+pdm venv create --with conda --name my-env-name 3.10
 ```
 
 ### Step 4: Activate the Virtual Environment

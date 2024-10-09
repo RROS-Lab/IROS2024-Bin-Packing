@@ -1,0 +1,19 @@
+[project]
+name = "IROS2024-Bin-Packing"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "Hantao Ye, Omey Manyar", email = "hantaoye@usc.edu, manyar@usc.edu"},
+]
+dependencies = [
+    "scipy>=1.14.1",
+    "mujoco==3.1.2",
+    "pandas>=2.2.3",
+]
+requires-python = "==3.10.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false

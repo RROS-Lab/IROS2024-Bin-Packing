@@ -6,7 +6,21 @@ This repository is the official implementation of [Simulation-Assisted Learning 
 
 This code is intended for reproduction purposes only. Current implementation does not support extensions. The objective of this repository is to provide the reader with the implementation details of the learning framework proposed in the IROS 2024 paper.
 
-[TOC]
+- [IROS2024-Bin-Packing](#iros2024-bin-packing)
+  - [Environment Setup](#environment-setup)
+    - [Pre-requirements](#pre-requirements)
+    - [Step 1: Install PDM](#step-1-install-pdm)
+    - [Step 2: Clone the Repository](#step-2-clone-the-repository)
+    - [Step 3: Create a Virtual Environment](#step-3-create-a-virtual-environment)
+    - [Step 4: Activate the Virtual Environment](#step-4-activate-the-virtual-environment)
+    - [Optional Step: Manage Dependencies](#optional-step-manage-dependencies)
+  - [Simulation](#simulation)
+    - [Visualization](#visualization)
+    - [Data generation](#data-generation)
+  - [Failure Classification Model](#failure-classification-model)
+  - [Packing Score Prediction Model](#packing-score-prediction-model)
+  - [Action Prediction Module (Optimizer)](#action-prediction-module-optimizer)
+  - [Citation](#citation)
 
 ## Environment Setup
 

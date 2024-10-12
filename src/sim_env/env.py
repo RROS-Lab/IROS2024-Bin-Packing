@@ -1,7 +1,7 @@
+import argparse
 import csv
 import copy
 import os
-import sys
 import time
 import threading
 from concurrent.futures import ThreadPoolExecutor
@@ -436,13 +436,33 @@ if __name__ == "__main__":
     )
     packages = generate_packages(package_filename)
 
-    num_threads = 12
-    num_scenes = 400
+    arg_parser = argparse.ArgumentParser()
+    arg_parser.add_argument(
+        "--data_filename",
+        type=str,
+        default="data.csv",
+    )
+    arg_parser.add_argument(
+        "--visualize",
+        type=bool,
+        default=False,
+    )
+    arg_parser.add_argument(
+        "--num_threads",
+        type=int,
+        default=12,
+    )
+    arg_parser.add_argument(
+        "--num_scenes",
+        type=int,
+        default=400,
+    )
+    args = arg_parser.parse_args()
 
     data_folder = os.path.join(workspace_folder, "sim_env", "data", "sim_exp")
     if not os.path.exists(data_folder):
         os.makedirs(data_folder)
-    data_filename = sys.argv[1] if len(sys.argv) > 1 else "data.csv"
+    data_filename = args.data_filename
     data_filename = os.path.join(data_folder, data_filename)
 
     with open(data_filename, "w") as f:
@@ -473,24 +493,27 @@ if __name__ == "__main__":
                 "robot_action",
             ]
         )
-    
-    create_scene(
-        packages,
-        data_filename,
-        scene_num=num_scenes,
-        visualize=False,
-    )
-    exit(0)
 
-    pool = ThreadPoolExecutor(max_workers=num_threads)
+    num_scenes = args.num_scenes
 
-    for i in range(num_threads):
-        pool.submit(
-            create_scene,
+    if args.visualize:
+        create_scene(
             packages,
             data_filename,
             scene_num=num_scenes,
-            visualize=False,
+            visualize=True,
         )
+    else:
+        num_threads = args.num_threads
+        pool = ThreadPoolExecutor(max_workers=num_threads)
 
-    pool.shutdown(wait=True)
+        for i in range(num_threads):
+            pool.submit(
+                create_scene,
+                packages,
+                data_filename,
+                scene_num=num_scenes,
+                visualize=False,
+            )
+
+        pool.shutdown(wait=True)

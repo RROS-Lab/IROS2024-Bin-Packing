@@ -436,26 +436,30 @@ if __name__ == "__main__":
     )
     packages = generate_packages(package_filename)
 
-    arg_parser = argparse.ArgumentParser()
+    arg_parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     arg_parser.add_argument(
         "--data_filename",
         type=str,
         default="data.csv",
+        help="Filename to save data to",
     )
     arg_parser.add_argument(
         "--visualize",
         type=bool,
         default=False,
+        help="Visualize the scene",
     )
     arg_parser.add_argument(
         "--num_threads",
         type=int,
         default=12,
+        help="Number of threads to use"
     )
     arg_parser.add_argument(
         "--num_scenes",
         type=int,
         default=400,
+        help="Number of scenes to generate"
     )
     args = arg_parser.parse_args()
 

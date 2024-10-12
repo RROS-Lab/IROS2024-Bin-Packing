@@ -1,5 +1,9 @@
 # IROS2024-Bin-Packing
+This repository is the official implementation of [Simulation-Assisted Learning for Efficient Bin-Packing of Deformable Packages in a Bimanual Robotic Cell](https://sites.google.com/usc.edu/bimanual-binpacking/home).
 
+<img src="./assets/bi-manual-binpacking.gif" width="500px"></img>
+
+This code is intended for reproduction purposes only. Current implementation does not support extensions. The objective of this repository is to provide the reader with the implementation details of the learning framework proposed in the IROS 2024 paper.
 ## Environment Setup
 
 To simplify the process of setting up the development environment, we use **[PDM](https://pdm-project.org/en/latest/)** for Python package management and virtual environment management.
@@ -80,3 +84,54 @@ Please follow [PDM documentation](https://pdm-project.org/en/latest/usage/depend
 ## Simulation
 
 TODO
+
+## Failure Classification Model
+The role of this model is identify cases that are considered unrecoverable in terms of packing score.
+An example dataset is also provided for reproduction of our studies (You can download it from [https://drive.google.com/file/d/1uVUyZfa5tIXsbdR-5V-E6-_dTNmQGyZw/view?usp=drive_link](https://drive.google.com/file/d/1uVUyZfa5tIXsbdR-5V-E6-_dTNmQGyZw/view?usp=drive_link)).
+Place the two csv files in the following directory: /src/packing_score_predictor/dataset/processed_data/ .
+
+In order to perform training kindly run the following command in terminal:
+```Failure Classifier
+cd src/packing_score_predictor
+python -f train_classifier.py -f training_params_classifier.json
+```
+This will generate the model for detecting failure cases. Running the script generates a confusion matrix representative of the final classification performance.
+
+## Packing Score Prediction Model
+The packing score model is the model 1 (Suction Robot) and model 2 (Paddle Robot/In-bin Robot) state-action model that predicts the packing score for given state and actions.
+An example dataset is also provided for reproduction of our studies.
+
+In order to perform training of the model with the given dataset, run the following command:
+```Inferencing Packing Score Prediction Model
+python train_score_predictor.py -f training_params_score.json
+```
+
+## Action Prediction Module (Optimizer)
+The action prediction module is the online optimizer that computes the actions for the robots. 
+We've provided a pre-trained checkpoint for the packing score predictor.
+The action prediction module takes this pre-trained checkpoint as the input and predicts the delta actions for the bi-manual robots.
+
+In order to perform inference. You can update the state values, based on the dataset values and perform inference. This can be done by varying line 160 in action_predictor.py. For state definitions refer to lines 73-92. in action_predictor.py. 
+
+Run the following command for inference:
+```Action Prediction
+cd src/action_predictor
+python action_predictor.py -f predictor_config.json
+```
+
+
+## Citation
+
+```
+@INPROCEEDINGS{manyar_iros_2024,
+  author={Manyar, Omey M. and Ye, Hantao. and Sagare, Meghana and Mayya, Siddharth and Wang, Fan and Gupta, Satyandra K.},
+  booktitle={2024 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)}, 
+  title={Simulation-Assisted Learning for Efficient Bin-Packing of Deformable Packages in a Bimanual Robotic Cell}, 
+  year={2024},
+  month={Oct},
+  address="Abu Dhabi, UAE", 
+  volume={},
+  number={},
+  pages={},
+  doi={}}
+```

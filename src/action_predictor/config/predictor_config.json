@@ -1,0 +1,20 @@
+{
+    "num_actions":5,
+    "method":"Nelder-Mead",
+    "device":"cpu",
+    "model_checkpoint":"model_ckpt/best_model.pt",
+    "normalization_params":{
+        "suction_x":[-0.02,0.02],
+        "suction_theta":[-21.0,0.0],
+        "paddle_x":[0.0,0.03],
+        "paddle_z":[-0.07, 0.05],
+        "paddle_theta":[0.0,20.0],
+        "package_mass":1.5,
+        "package_stiffness":7150.0,
+        "package_thickness":0.065,
+        "bin_state_x":0.42,
+        "bin_state_theta":[-65.0,12.0]
+
+    }
+
+}

@@ -9,6 +9,12 @@ dependencies = [
     "scipy>=1.14.1",
     "mujoco==3.1.2",
     "pandas>=2.2.3",
+    "torch>=2.4.1",
+    "matplotlib>=3.9.2",
+    "wandb>=0.18.3",
+    "seaborn>=0.13.2",
+    "scikit-learn>=1.5.2",
+    "open3d>=0.18.0",
 ]
 requires-python = "==3.10.*"
 readme = "README.md"

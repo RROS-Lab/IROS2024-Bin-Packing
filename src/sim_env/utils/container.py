@@ -7,6 +7,7 @@ class Package:
         package_size: list,
         mass: float,
         stiffness: float,
+        verbose: bool = False,
     ) -> None:
 
         self.name = name
@@ -20,4 +21,5 @@ class Package:
             self.package_size[0] * self.package_size[1]
         )
 
-        print(f"Package {self.name} created with youngs modulus {self.youngs_mod}.")
+        if verbose:
+            print(f"Package {self.name} created with youngs modulus {self.youngs_mod}.")

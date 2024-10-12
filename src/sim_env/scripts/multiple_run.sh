@@ -21,7 +21,7 @@ while [ $i -lt $NUM_RUNS ]; do
     DATA_FILE_NAME="${BASE_NAME}${CURRENT_INDEX}.csv"  # Change .txt to your actual file extension
 
     # Run the Python script with the current data file name as an argument
-    python3 -m $PYTHON_MODULE $DATA_FILE_NAME
+    python3 -m $PYTHON_MODULE --data_filename $DATA_FILE_NAME
 
     # Increment the counter
     i=$((i + 1))

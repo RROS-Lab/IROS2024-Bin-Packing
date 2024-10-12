@@ -4,6 +4,8 @@
 
 <sup>1</sup>University of Southern California, <sup>2</sup>Amazon Robotics, <sup>*</sup>Equal contribution
 
+IROS 2024
+
 **[Project Page](https://sites.google.com/usc.edu/bimanual-binpacking/home) | [Video](https://www.youtube.com/watch?v=l6VeTOpoE5A) | [Paper](https://www.amazon.science/publications/simulation-assisted-learning-for-efficient-bin-packing-of-deformable-packages-in-a-bimanual-robotic-cell)**
 
 ![Bimanual-BinPacking](./assets/bi-manual-binpacking.gif)

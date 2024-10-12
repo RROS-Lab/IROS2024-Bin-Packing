@@ -1,12 +1,16 @@
-# IROS2024-Bin-Packing
+# Simulation-Assisted Learning for Efficient Bin-Packing of Deformable Packages in a Bimanual Robotic Cell
 
-This repository is the official implementation of [Simulation-Assisted Learning for Efficient Bin-Packing of Deformable Packages in a Bimanual Robotic Cell](https://sites.google.com/usc.edu/bimanual-binpacking/home).
+[Omey M. Manyar^1,*^](https://omey-manyar.com/), [Hantao Ye^1,*^](https://hantao-ye.github.io/), [Meghana Sagare^1^](https://www.linkedin.com/in/msagare), [Siddharth Mayya^2^](https://www.amazon.science/author/siddharth-mayya), [Fan Wang^2^](https://www.amazon.science/author/fan-wang) and [Satyandra K. Gupta^1^](https://sites.usc.edu/skgupta/)
+
+^1^University of Southern California, ^2^Amazon Robotics, ^*^Equal contribution
+
+**[Project Page](https://sites.google.com/usc.edu/bimanual-binpacking/home) | [Video](https://www.youtube.com/watch?v=l6VeTOpoE5A) | [Paper](https://www.amazon.science/publications/simulation-assisted-learning-for-efficient-bin-packing-of-deformable-packages-in-a-bimanual-robotic-cell)**
 
 ![Bimanual-BinPacking](./assets/bi-manual-binpacking.gif)
 
-This code is intended for reproduction purposes only. Current implementation does not support extensions. The objective of this repository is to provide the reader with the implementation details of the learning framework proposed in the IROS 2024 paper.
+This repository is the official implementation of the paper. This code is intended for reproduction purposes only. Current implementation does not support extensions. The objective of this repository is to provide the reader with the implementation details of the learning framework proposed in the IROS 2024 paper.
 
-- [IROS2024-Bin-Packing](#iros2024-bin-packing)
+- [Simulation-Assisted Learning for Efficient Bin-Packing of Deformable Packages in a Bimanual Robotic Cell](#simulation-assisted-learning-for-efficient-bin-packing-of-deformable-packages-in-a-bimanual-robotic-cell)
   - [Environment Setup](#environment-setup)
     - [Pre-requirements](#pre-requirements)
     - [Step 1: Install PDM](#step-1-install-pdm)
